@@ -7,7 +7,6 @@ import { getUser } from '../redux/actions/userActions'
 function Profile() {
 
     const user = useSelector(state => state.user)
-    // const galleries = useSelector(state => console.log(state.user))
 
     const dispatch = useDispatch()
 
