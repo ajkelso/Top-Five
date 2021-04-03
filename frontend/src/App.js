@@ -3,6 +3,7 @@ import Home from './components/Home'
 import Login from './components/Login'
 import Profile from './components/Profile'
 import Navbar from './components/Navbar'
+import ListForm from './components/ListForm'
 
 import './App.css';
 
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/profile" component={Profile} />
+          <Route path="/lists/new" component={ListForm} />
         </Switch>
       </Router>
     </div>
