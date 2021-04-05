@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getUser } from '../redux/actions/userActions'
+import { getToken } from '../services/local-storage'
+import { Redirect } from 'react-router-dom'
 
 // import { profileRequest } from '../services/api'
 
@@ -26,9 +28,13 @@ function Profile() {
             return <p>PLease Login</p>
         }
     }
+    console.log(getToken())
 
     return(
-        renderProfile()
+        <div>
+            {!getToken() ? <Redirect to="/login" /> : null }
+            {renderProfile()}
+        </div>
     )
 
 }

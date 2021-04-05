@@ -3,7 +3,7 @@ export function userReducer(state = {}, action) {
         case 'START_ADDING_USER':
             return state
         case 'SET_USER':
-            return action.payload
+            return action.payload || state
         case 'CLEAR_USER' :
             return ({})
         default :

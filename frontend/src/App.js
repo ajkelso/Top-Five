@@ -4,10 +4,15 @@ import Login from './components/Login'
 import Profile from './components/Profile'
 import Navbar from './components/Navbar'
 import ListForm from './components/ListForm'
-
+import { clearToken, getToken } from './services/local-storage'
 import './App.css';
 
 function App() {
+
+  const handleLogout = () => {
+    clearToken()
+  }
+
   return (
     <div className="App">
       <Router>
@@ -18,6 +23,7 @@ function App() {
           <Route path="/profile" component={Profile} />
           <Route path="/lists/new" component={ListForm} />
         </Switch>
+        { !getToken? <button onClick={handleLogout}>Logout</button> : null }
       </Router>
     </div>
   );
