@@ -18,17 +18,12 @@ function Profile() {
     }, [])
 
     const renderProfile = () => {
-        if(user.username){
-            return (
-            <div>
-                <h3>Welcome, {user.username}</h3>
-            </div>
-            )
-        }else{
-            return <p>PLease Login</p>
-        }
+        return (
+        <div>
+            <h3>Welcome, {user.username}</h3>
+        </div>
+        )
     }
-    console.log(getToken())
 
     return(
         <div>
