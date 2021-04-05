@@ -35,9 +35,9 @@ n14 = Nomination.create(name: 'Pizza', category_id: 2)
 n15 = Nomination.create(name: 'Pasta', category_id: 2)
 n11 = Nomination.create(name: 'Sushi', category_id: 2)
 
-l1 = List.create(user_id: 1, category_id: 1, first: n1, second: n2, third: n3, fourth: n4, fifth: n5)
-l2 = List.create(user_id: 1, category_id: 2, first: n10, second: n6, third: n7, fourth: n8, fifth: n9)
-l3 = List.create(user_id: 2, category_id: 1, first: n5, second: n4, third: n3, fourth: n2, fifth: n1)
-l4 = List.create(user_id: 3, category_id: 3, first: n11, second: n12, third: n13, fourth: n14, fifth: n15)
+l1 = List.create(user_id: u1.id, category_id: c1.id, first: n1, second: n2, third: n3, fourth: n4, fifth: n5)
+l2 = List.create(user_id: u1.id, category_id: c2.id, first: n10, second: n6, third: n7, fourth: n8, fifth: n9)
+l3 = List.create(user_id: u2.id, category_id: c1.id, first: n5, second: n4, third: n3, fourth: n2, fifth: n1)
+l4 = List.create(user_id: u3.id, category_id: c3.id, first: n11, second: n12, third: n13, fourth: n14, fifth: n15)
 
 puts "Seeding complete!"

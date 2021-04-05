@@ -7,7 +7,13 @@ const loginHeaders = {
 }
 
 const authHeaders = () => ({
-    Authorization: `Bearer ${localStorage.getItem('jwt')}`
+    'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+})
+
+const postHeaders = () => ({
+    'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+    'Accepts': 'application/json',
+    'Content-Type': 'application/json'
 })
 
 export function loginRequest(credentials) {
@@ -22,6 +28,15 @@ export function loginRequest(credentials) {
 export function profileRequest() {
     return fetch(URL + 'profile', {
         headers: authHeaders()
+    })
+    .then(parseJSON)
+}
+
+export function postList(listData) {
+    return fetch(URL + 'lists', {
+        method: "POST",
+        headers: postHeaders(),
+        body: JSON.stringify(listData)
     })
     .then(parseJSON)
 }

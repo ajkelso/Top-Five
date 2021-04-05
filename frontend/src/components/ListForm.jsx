@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { postList } from '../services/api'
 
 function ListForm() {
 
@@ -11,29 +12,37 @@ function ListForm() {
         fifth: ""
     })
 
-    // const [category, setCategory] = useState("")
-    // const [first, setFirst] = useState("")
-    // const [second, setSecond] = useState("")
-    // const [third, setThird] = useState("")
-    // const [fourth, setFourth] = useState("")
-    // const [fifth, setFifth] = useState("")
-
     const handleChange = (e) => {
-        
-        
         setFormData((prevalue) => {
             return {
                 ...prevalue,
                 [e.target.name]: e.target.value
-            }
-            
+            }      
         })
-
     }
+
+    // const buildSubmitData = () => ({
+    //     list: {
+    //         first: formData.first,
+    //         second: formData.second,
+    //         third: formData.third,
+    //         fourth: formData.fourth,
+    //         fifth: formData.fifth
+    //     },
+    //     category_attributes: [{
+    //         title: formData.category
+    //     }],
+    //     nomination_attributes: [
+    //         { name : formData.first}
+    //     ]
+
+    // })
 
     const handleSubmit = (e) => {
         e.preventDefault()
-
+        postList(formData)
+        .then(res => console.log(res))
+        
     }
 
     return(
