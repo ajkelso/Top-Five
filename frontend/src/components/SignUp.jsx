@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { signUpRequest } from '../services/api'
+import { setToken } from '../services/local-storage'
 
-function SignUp(){
+function SignUp(props){
 
 
     const [formData, setFormData] = useState({
@@ -44,6 +45,19 @@ function SignUp(){
     const handleSubmit = (e) => {
         e.preventDefault()
         signUpRequest(buildUserData())
+        .then(res => {
+            if (res.error){
+                setFormData((prevalue) => {
+                    return {
+                        ...prevalue,
+                        message: res.error
+                    }
+                })
+            } else {
+                setToken(res.jwt)
+                props.history.push('/profile')
+            }
+        })
     
     }
 
