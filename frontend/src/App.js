@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-      {!getToken() ? <Redirect to="/login" /> : null }
+      {/* {!getToken() ? <Redirect to="/login" /> : null } */}
         <Navbar/>
         <Switch>
           <Route exact path="/" component={Home} />
@@ -23,7 +23,6 @@ function App() {
           <Route path="/profile" component={Profile} />
           <Route path="/lists/new" component={ListForm} />
           <Route exact path="/logout" component={Logout}/>
-          <Route exact path="/signup" component={SignUp} />
         </Switch>
       </Router>
     </div>

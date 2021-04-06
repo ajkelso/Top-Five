@@ -28,7 +28,7 @@ function SignUp(){
 
     return(
         <div>
-            <h4>Please sign up to start your TopFive!</h4>
+            <h4>Sign up to start your TopFive!</h4>
             <form onSubmit={handleSubmit}>
                 {/* <p style={{color: 'red'}}>{message}</p> */}
                 <label htmlFor="username">Username: </label>
