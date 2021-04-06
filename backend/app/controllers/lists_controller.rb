@@ -11,7 +11,6 @@ class ListsController < ApplicationController
         fifth = Nomination.find_or_create_by(name: params["fifth"], category_id: category.id)
         new_list.update(first: first.id, second: second.id, third: third.id, fourth: fourth.id, fifth:fifth.id)  
 
-        byebug
         render json: new_list
 
     end

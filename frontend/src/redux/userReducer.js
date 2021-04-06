@@ -6,6 +6,8 @@ export function userReducer(state = {}, action) {
             return action.payload || state
         case 'CLEAR_USER' :
             return ({})
+        case 'START_ADDING_LIST' :
+            return state
         case 'ADD_LIST' :
             debugger
             return {
