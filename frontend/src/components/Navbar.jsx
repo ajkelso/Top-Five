@@ -1,5 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { getToken, clearToken } from '../services/local-storage'
+
 
 export default function Navbar() {
     return(

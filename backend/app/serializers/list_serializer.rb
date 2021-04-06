@@ -1,7 +1,7 @@
 class ListSerializer < ActiveModel::Serializer
-  attributes :id, :top_five
+  attributes :id, :list_data
 
-  def top_five
+  def list_data
     {
       category: Category.find(object.category_id).title,
       first: Nomination.find(object.first).name,

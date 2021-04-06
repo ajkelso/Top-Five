@@ -9,6 +9,7 @@ import { Redirect } from 'react-router-dom'
 function Profile() {
 
     const user = useSelector(state => state.user)
+    console.log(user)
 
     const dispatch = useDispatch()
 

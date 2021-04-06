@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { loginRequest } from '../services/api'
+import { setToken } from '../services/local-storage'
 
 function Login(props) {
 
@@ -17,7 +18,7 @@ function Login(props) {
             if (res.message) {
                 setMessage(res.message)
             } else {
-                localStorage.setItem('jwt', res.jwt)
+                setToken(res.jwt)
                 props.history.push('/profile')
             }
         })

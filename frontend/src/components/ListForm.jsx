@@ -21,23 +21,6 @@ function ListForm() {
         })
     }
 
-    // const buildSubmitData = () => ({
-    //     list: {
-    //         first: formData.first,
-    //         second: formData.second,
-    //         third: formData.third,
-    //         fourth: formData.fourth,
-    //         fifth: formData.fifth
-    //     },
-    //     category_attributes: [{
-    //         title: formData.category
-    //     }],
-    //     nomination_attributes: [
-    //         { name : formData.first}
-    //     ]
-
-    // })
-
     const handleSubmit = (e) => {
         e.preventDefault()
         postList(formData)
@@ -46,6 +29,7 @@ function ListForm() {
     }
 
     return(
+
         <div>
             <form onSubmit={handleSubmit}>
                 <input type="text" name="category" placeholder="Choose a Category..." onChange={handleChange} value={formData.category}/><br/>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_02_193253) do
+ActiveRecord::Schema.define(version: 2021_04_06_013216) do
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(version: 2021_04_02_193253) do
     t.string "third"
     t.string "fourth"
     t.string "fifth"
+  end
+
+  create_table "lists_nominations", id: false, force: :cascade do |t|
+    t.integer "list_id"
+    t.integer "nomination_id"
+    t.index ["list_id"], name: "index_lists_nominations_on_list_id"
+    t.index ["nomination_id"], name: "index_lists_nominations_on_nomination_id"
   end
 
   create_table "nominations", force: :cascade do |t|
