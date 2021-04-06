@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { postList } from '../services/api'
 
-function ListForm() {
+function ListForm(props) {
 
     const [formData, setFormData] = useState({
         category: "",
@@ -11,6 +12,8 @@ function ListForm() {
         fourth: "",
         fifth: ""
     })
+
+    const dispatch = useDispatch()
 
     const handleChange = (e) => {
         setFormData((prevalue) => {
@@ -24,8 +27,11 @@ function ListForm() {
     const handleSubmit = (e) => {
         e.preventDefault()
         postList(formData)
-        .then(res => console.log(res))
-        
+        .then(res => {
+            dispatch( {type: 'ADD_LIST', payload: res} )
+            props.history.push('/profile')
+        })
+
     }
 
     return(

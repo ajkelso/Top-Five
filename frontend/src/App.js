@@ -19,8 +19,8 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar/>
         {!getToken() ? <Redirect to="/login" /> : null }
+        <Navbar/>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />

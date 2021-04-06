@@ -4,11 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
-import { applyMiddleware, createStore } from 'redux'
+import { applyMiddleware, createStore, compose } from 'redux'
 import reducer from './redux'
 import thunk from 'redux-thunk'
 
-const store = createStore(reducer, applyMiddleware(thunk))
+const store = createStore(reducer, compose(applyMiddleware(thunk), window.devToolsExtension ? window.devToolsExtension() : f => f))
 
 ReactDOM.render(
   <Provider store={store}>
