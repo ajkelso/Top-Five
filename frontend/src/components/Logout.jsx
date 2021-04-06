@@ -14,6 +14,6 @@ export default function Logout() {
         dispatch(clearUser())
     }, [])
 
-    return <Redirect to='login'/>
+    return <Redirect to='/'/>
 }
 
