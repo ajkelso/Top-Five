@@ -10,12 +10,13 @@ export function getUser(){
     }
 }
 
-export function addUserList(formData){
+export function addUserList(formData, history){
     return (dispatch) => { 
         dispatch({type: 'START_ADDING_LIST'});
         postList(formData)
         .then(res => {
             dispatch( {type: 'ADD_LIST', payload: res} ) 
+            history.push('/profile')
         })
     }
 }

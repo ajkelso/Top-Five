@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addUserList } from '../redux/actions/userActions'
+import { useHistory } from "react-router-dom"
 
 function ListForm(props) {
 
@@ -15,6 +16,8 @@ function ListForm(props) {
 
     const dispatch = useDispatch()
 
+    const history = useHistory()
+
     const handleChange = (e) => {
         setFormData((prevalue) => {
             return {
@@ -26,9 +29,7 @@ function ListForm(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(addUserList(formData))
-        props.history.push('/profile')
-
+        dispatch(addUserList(formData, history))
     }
 
     return(

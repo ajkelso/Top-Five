@@ -9,7 +9,6 @@ export function userReducer(state = {}, action) {
         case 'START_ADDING_LIST' :
             return state
         case 'ADD_LIST' :
-            debugger
             return {
                     ...state,
                     lists: [...state.lists, action.payload]
