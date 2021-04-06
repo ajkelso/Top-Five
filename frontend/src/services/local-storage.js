@@ -5,6 +5,5 @@ export const setToken = token => {
 }
 
 export const clearToken = () => {
-    console.log('fired')
     localStorage.removeItem('jwt') 
 }

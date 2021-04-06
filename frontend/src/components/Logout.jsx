@@ -9,7 +9,6 @@ export default function Logout() {
 
     const dispatch = useDispatch()
 
-    console.log('logout fired');
     useEffect(() => {
         clearToken()
         dispatch(clearUser())

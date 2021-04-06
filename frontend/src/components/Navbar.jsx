@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux'
 export default function Navbar() {
 
     const user = useSelector(state => state.user)
-    console.log(Object.keys(user).length === 0)
 
     const loggedInNav = () => {
         return(
@@ -24,7 +23,6 @@ export default function Navbar() {
     return(
         <div>
             <NavLink to="/profile" exact>Home</NavLink>
-            {/* <NavLink to="/lists/new">Create List</NavLink> */}
             { Object.keys(user).length !== 0 ? loggedInNav() : null }
         </div>
     )
