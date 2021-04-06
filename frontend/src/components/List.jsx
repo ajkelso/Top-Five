@@ -1,7 +1,6 @@
 import React from 'react';
 
 function List(props) {
-    console.log(props.listData)
     const {category, first, second, third, fourth, fifth} = props.listData
 
     return(

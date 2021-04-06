@@ -19,18 +19,10 @@ function Profile() {
         dispatch(getUser())
     }, [])
 
-    const renderProfile = () => {
-        return (
-        <div>
-            <h3>Welcome, {user.username}</h3>
-        </div>
-        )
-    }
-
     return(
         <div>
-            {!getToken() ? <Redirect to="/login" /> : null }
-            {renderProfile()}
+            <h3>Welcome, {user.username}!</h3>
+           
             <ListContainer lists={user.lists} />
         </div>
     )
