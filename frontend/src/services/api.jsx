@@ -1,5 +1,5 @@
 const URL = 'http://localhost:3000/'
-const usersURL = URL + 'users'
+// const usersURL = URL + 'users'
 const parseJSON = res => res.json()
 const loginHeaders = {
     'Accepts': 'application/json',

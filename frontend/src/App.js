@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch, Redirect, useHistory } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import Home from './components/Home'
 import Login from './components/Login'
 import Profile from './components/Profile'
@@ -10,7 +10,7 @@ import './App.css';
 
 function App() {
 
-  let history = useHistory(); 
+  // let history = useHistory(); 
 
   const handleLogout = () => {
     clearToken()
