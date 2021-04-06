@@ -9,7 +9,7 @@ import { Redirect } from 'react-router-dom'
 function Profile() {
 
     const user = useSelector(state => state.user)
-    console.log(user)
+    console.log(user.lists[1])
 
     const dispatch = useDispatch()
 
