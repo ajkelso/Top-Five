@@ -32,9 +32,9 @@ function Login(props) {
             <form onSubmit={handleSubmit}>
                 <p style={{color: 'red'}}>{message}</p>
                 <label htmlFor="username">Username: </label>
-                <input type="text" onChange={handleChangeUsername} value={username}/>
+                <input type="text" onChange={handleChangeUsername} value={username}/><br/>
                 <label htmlFor="password">Password: </label>
-                <input type="password" onChange={handleChangePassword} value={password}/>
+                <input type="password" onChange={handleChangePassword} value={password}/><br/>
                 <input type="submit"/>
             </form>
         </div>
