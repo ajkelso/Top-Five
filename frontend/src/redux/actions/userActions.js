@@ -20,3 +20,7 @@ export function addUserList(formData, history){
         })
     }
 }
+
+export function clearUser() {
+    return (dispatch) => dispatch({type: 'CLEAR_USER'})
+}
