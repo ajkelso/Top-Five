@@ -5,6 +5,7 @@ import Profile from './components/Profile'
 import Navbar from './components/Navbar'
 import ListForm from './components/ListForm'
 import Logout from './components/Logout'
+import SignUp from './components/SignUp'
 import { getToken } from './services/local-storage'
 
 import './App.css';
@@ -22,6 +23,7 @@ function App() {
           <Route path="/profile" component={Profile} />
           <Route path="/lists/new" component={ListForm} />
           <Route exact path="/logout" component={Logout}/>
+          <Route exact path="/signup" component={SignUp} />
         </Switch>
       </Router>
     </div>
