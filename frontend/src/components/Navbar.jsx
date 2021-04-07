@@ -13,6 +13,7 @@ export default function Navbar() {
         return(
         <>
             <NavLink to="/lists/new">Create List</NavLink>
+            <NavLink to="/categories">Categories</NavLink>
             <NavLink to={'/logout'}>Logout</NavLink>
         </>
         )

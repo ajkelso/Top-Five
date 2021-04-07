@@ -5,6 +5,7 @@ import Navbar from './components/Navbar'
 import ListForm from './components/ListForm'
 import Logout from './components/Logout'
 import { getToken } from './services/local-storage'
+import CategoriesContainer from './components/CategoriesContainer'
 
 import './App.css';
 
@@ -19,7 +20,8 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/profile" component={Profile} />
           <Route path="/lists/new" component={ListForm} />
-          <Route exact path="/logout" component={Logout}/>
+          <Route path="/categories" component={CategoriesContainer} />
+          <Route exact path="/logout" component={Logout} />
         </Switch>
       </Router>
     </div>

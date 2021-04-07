@@ -49,3 +49,10 @@ export function signUpRequest(userData){
     })
     .then(parseJSON)
 }
+
+export function categoriesRequest(){
+    return fetch(URL + 'categories', {
+        headers: authHeaders()
+    })
+    .then(parseJSON)
+}
