@@ -1,21 +1,27 @@
 import React, { useEffect } from 'react'
-import { userSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { getCategories } from '../redux/actions/groupActions'
+import Category from './Category'
 
 
 function CategoriesContainer() {
     
     const dispatch = useDispatch()
 
-    // const categories = userSelector()
+    const categories = useSelector(state => state.groups.categories)
     
     useEffect(() => {
         dispatch(getCategories())
     }, [])
-    
+
+    const renderCategories = () => {
+        return categories.map(cat => <Category key={cat.id} category={cat} /> )
+    }
+
     return(
         <div>
             Categories
+            {!!categories ? renderCategories() : null }
         </div>
     )
 }
