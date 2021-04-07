@@ -4,7 +4,9 @@ export function getCategories() {
     return (dispatch) => {
         dispatch({type: 'START_ADDING_CATEGORIES'});
         categoriesRequest()
-        .then(res => console.log(res))
+        .then(res => {
+            dispatch({ type: 'ADD_CATEGORIES', payload: res.categories })
+        })
     }
 }
 
