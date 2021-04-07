@@ -4,7 +4,6 @@ import { setToken } from '../services/local-storage'
 
 function SignUp(props){
 
-
     const [formData, setFormData] = useState({
         username: "",
         email: "",
@@ -13,7 +12,6 @@ function SignUp(props){
         message: ""
     })
 
-    
     const handleChange = (e) => {
         setFormData((prevalue) => {
             return {
@@ -58,10 +56,7 @@ function SignUp(props){
                 props.history.push('/profile')
             }
         })
-    
     }
-
-
 
     return(
         <div>
