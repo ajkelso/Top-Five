@@ -3,6 +3,7 @@ export function groupReducer(state = {}, action) {
         case 'START_ADDING_CATEGORIES':
             return state
         case 'ADD_CATEGORIES':
+            console.log(action.payload);
             return {...state, categories: action.payload }
         default :
             return state

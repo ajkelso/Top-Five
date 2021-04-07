@@ -1,13 +1,19 @@
 import React from 'react'
 
-function Category() {
+function Category({title, topTen}) {
 
-
-
-
+    const renderTopTen = () => {
+        return topTen.map(nom => (
+            <li><strong>{nom.name}</strong>  |  points: {nom.votes}</li>
+        ))
+    }
+    
     return(
         <div>
-            A category
+            <h5>{title}</h5>
+            <ol>
+                {renderTopTen()}
+            </ol>
         </div>
     )
     

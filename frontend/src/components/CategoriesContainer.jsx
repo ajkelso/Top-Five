@@ -15,7 +15,7 @@ function CategoriesContainer() {
     }, [])
 
     const renderCategories = () => {
-        return categories.map(cat => <Category key={cat.id} category={cat} /> )
+        return categories.map(cat => <Category key={cat.id} title={cat.title} topTen={cat.top_ten} /> )
     }
 
     return(
