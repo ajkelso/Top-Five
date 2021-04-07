@@ -23,7 +23,7 @@ export default function Navbar() {
     
     return(
         <div>
-            <NavLink to="/profile" exact>Home</NavLink>
+            {/* <NavLink to="/profile" exact>Home</NavLink> */}
             { Object.keys(user).length !== 0 ? loggedInNav() : null }
         </div>
     )
