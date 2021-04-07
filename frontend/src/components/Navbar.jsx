@@ -11,7 +11,8 @@ export default function Navbar() {
 
     const loggedInNav = () => {
         return(
-        <>
+        <> 
+            <NavLink to="/profile">Profile</NavLink>
             <NavLink to="/lists/new">Create List</NavLink>
             <NavLink to="/categories">Categories</NavLink>
             <NavLink to={'/logout'}>Logout</NavLink>

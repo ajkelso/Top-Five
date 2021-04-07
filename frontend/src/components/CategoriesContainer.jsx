@@ -20,7 +20,7 @@ function CategoriesContainer() {
 
     return(
         <div>
-            Categories
+            <h3>Categories</h3>
             {!!categories ? renderCategories() : null }
         </div>
     )
