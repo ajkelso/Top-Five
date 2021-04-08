@@ -15,7 +15,7 @@ function Profile() {
 
     return(
         <div>
-            <h3>Welcome, {user.username}!</h3>
+                <h1 className="header">Welcome, {user.username}!</h1>
            
             <ListContainer lists={user.lists} />
         </div>
