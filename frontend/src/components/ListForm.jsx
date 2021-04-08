@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addUserList } from '../redux/actions/userActions'
-import { useHistory } from "react-router-dom"
+import { useHistory, Redirect } from "react-router-dom"
+import { getToken } from '../services/local-storage'
+
 
 function ListForm(props) {
 
@@ -35,6 +37,9 @@ function ListForm(props) {
     return(
 
         <div>
+
+            <h4>Create a top 5 List</h4>
+
             <form onSubmit={handleSubmit}>
                 <input type="text" name="category" placeholder="Choose a Category..." onChange={handleChange} value={formData.category}/><br/>
                 <label htmlFor="First">1.</label>

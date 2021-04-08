@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Login from './Login'
 import SignUp from './SignUp'
+import { getToken } from '../services/local-storage'
+import { Redirect } from 'react-router'
 
 function Home(props) {
 
@@ -23,7 +25,9 @@ function Home(props) {
     
     
     return (
+        
         <div>
+            {getToken() ? <Redirect to='/profile'/>: null }
             <h2>Welcome!</h2>  
 
             <p>Please <button onClick={handleLoginClick}>Login</button> or <button onClick={handleSignupClick}>SignUp</button> !</p>   

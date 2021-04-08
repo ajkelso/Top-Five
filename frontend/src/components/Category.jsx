@@ -4,7 +4,7 @@ function Category({title, topTen}) {
 
     const renderTopTen = () => {
         return topTen.map(nom => (
-            <li><strong>{nom.name}</strong>  |  points: {nom.votes}</li>
+            <li key={nom.key}><strong>{nom.name}</strong>  |  points: {nom.votes}</li>
         ))
     }
     

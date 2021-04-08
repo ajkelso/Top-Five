@@ -9,7 +9,7 @@ class ListsController < ApplicationController
         third = Nomination.find_or_create_by(name: params["third"], category_id: category.id)
         fourth = Nomination.find_or_create_by(name: params["fourth"], category_id: category.id)
         fifth = Nomination.find_or_create_by(name: params["fifth"], category_id: category.id)
-        byebug
+        
         first.increment!(:votes, 5)
         second.increment!(:votes, 4)
         third.increment!(:votes, 3)
