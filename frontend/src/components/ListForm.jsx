@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addUserList } from '../redux/actions/userActions'
-import { useHistory, Redirect } from "react-router-dom"
-import { getToken } from '../services/local-storage'
-
+import { useHistory } from "react-router-dom"
 
 function ListForm(props) {
 
