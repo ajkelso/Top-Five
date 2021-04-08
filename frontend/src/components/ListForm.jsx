@@ -41,45 +41,45 @@ function ListForm(props) {
 
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="listForm.category">
-                    <Form.Control type="text" name="category" placeholder="Choose a Category..." onChange={handleChange} value={formData.category}/>
+                    <Form.Control size="sm" type="text" name="category" placeholder="Choose a Category..." onChange={handleChange} value={formData.category}/>
                 </Form.Group>
                 <Form.Group as={Row} controlId="listForm.First">
                     <Form.Label column sm={1} htmlFor="First">1.</Form.Label>
                     <Col sm={10}>
-                        <Form.Control type="text" name="first" onChange={handleChange} value={formData.first}/><br/>
+                        <Form.Control size="sm" type="text" name="first" onChange={handleChange} value={formData.first}/><br/>
                     </Col>
                 </Form.Group>
 
                 <Form.Group as={Row} controlId="listForm.Second">
                     <Form.Label column sm={1} htmlFor="Second">2.</Form.Label>
                     <Col sm={10}>
-                        <Form.Control type="text" name="second" onChange={handleChange} value={formData.second}/><br/>
+                        <Form.Control size="sm" type="text" name="second" onChange={handleChange} value={formData.second}/><br/>
                     </Col>
                 </Form.Group>
 
                 <Form.Group as={Row} controlId="listForm.Third">
                     <Form.Label column sm={1} htmlFor="Third">3.</Form.Label>
                     <Col sm={10}>
-                        <Form.Control type="text" name="third" onChange={handleChange} value={formData.third}/><br/>
+                        <Form.Control size="sm" type="text" name="third" onChange={handleChange} value={formData.third}/><br/>
                     </Col>
                 </Form.Group>
 
                 <Form.Group as={Row} controlId="listForm.Fourth">
                     <Form.Label column sm={1} htmlFor="Fourth">4.</Form.Label>
                     <Col sm={10}>
-                        <Form.Control type="text" name="fourth" onChange={handleChange} value={formData.fourth}/><br/>
+                        <Form.Control size="sm" type="text" name="fourth" onChange={handleChange} value={formData.fourth}/><br/>
                     </Col>
                 </Form.Group>
 
                 <Form.Group as={Row} controlId="listForm.Fifth">
                     <Form.Label column sm={1} htmlFor="Fifth">5.</Form.Label>
                     <Col sm={10}>
-                        <Form.Control type="text" name="fifth" onChange={handleChange} value={formData.fifth}/><br/>
+                        <Form.Control size="sm" type="text" name="fifth" onChange={handleChange} value={formData.fifth}/><br/>
                     </Col>
                 </Form.Group>
 
                 <Form.Group as={Row} controlId="listForm.Submit">
-                    <Form.Control type="submit"/>
+                    <Form.Control size="sm" type="submit"/>
                 </Form.Group>
 
             </Form>
