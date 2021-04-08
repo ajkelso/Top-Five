@@ -11,12 +11,12 @@ export default function Navigation() {
     const loggedInNav = () => {
         return(
         <Navbar bg="primary" variant="light" expand="sm" > 
-            <Navbar.Brand href="/">Top5</Navbar.Brand>
+            <Navbar.Brand as={NavLink} to="/">Top5</Navbar.Brand>
             <Nav className="mr-auto">   
-                <Nav.Link href="/profile">Profile</Nav.Link>
-                <Nav.Link href="/lists/new">Create List</Nav.Link>
-                <Nav.Link href="/categories">Categories</Nav.Link>
-                <Nav.Link href='/logout'>Logout</Nav.Link>
+                <Nav.Link as={NavLink} to="/profile">Profile</Nav.Link>
+                <Nav.Link as={NavLink} to="/lists/new">Create List</Nav.Link>
+                <Nav.Link as={NavLink} to="/categories">Categories</Nav.Link>
+                <Nav.Link as={NavLink} to='/logout'>Logout</Nav.Link>
             </Nav>
              
         </Navbar>

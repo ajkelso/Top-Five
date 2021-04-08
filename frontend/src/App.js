@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import Home from './components/Home'
 import Profile from './components/Profile'
-import Navbar from './components/Navbar'
+import Navigation from './components/Navigation'
 import ListForm from './components/ListForm'
 import Logout from './components/Logout'
 import { getToken } from './services/local-storage'
@@ -20,7 +20,7 @@ function App() {
       <Container>
         <Router>
         {!getToken() ? <Redirect to="/" /> : null }
-          <Navbar/>
+          <Navigation/>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/profile" component={Profile} />
