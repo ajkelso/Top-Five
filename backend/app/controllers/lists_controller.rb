@@ -2,7 +2,8 @@ class ListsController < ApplicationController
 
     def create
         # REFACTOR!!!
-        category = Category.find_or_create_by(title: params[:category])
+        category = Category.find_or_create_by(title: params[:category].strip.downcase)
+        byebug
         new_list = List.create(user_id: current_user.id, category_id: category.id)
         first = Nomination.find_or_create_by(name: params["first"], category_id: category.id)
         second = Nomination.find_or_create_by(name: params["second"], category_id: category.id)

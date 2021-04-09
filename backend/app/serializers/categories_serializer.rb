@@ -5,4 +5,8 @@ class CategoriesSerializer < ActiveModel::Serializer
     Nomination.filter_by_category(object.id).desc_order.limit(10)
   end
 
+  def title
+    object.title.capitalize()
+  end
+
 end

@@ -10,7 +10,8 @@ const authHeaders = () => ({
     'Authorization': `Bearer ${localStorage.getItem('jwt')}`
 })
 
-const postHeaders = () => ({
+const postHeaders = () => (
+    {
     'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
     'Accepts': 'application/json',
     'Content-Type': 'application/json'
@@ -26,6 +27,7 @@ export function loginRequest(credentials) {
 }
 
 export function profileRequest() {
+    console.log(authHeaders())
     return fetch(URL + 'profile', {
         headers: authHeaders()
     })
