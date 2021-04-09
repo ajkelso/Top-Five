@@ -9,7 +9,7 @@ function List(props) {
             <thead>
                 <tr>
                     <th width='20px'>Ranking</th>
-                    <th>Category</th>
+                    <th>{category}</th>
                 </tr>
             </thead>
             <tbody>

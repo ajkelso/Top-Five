@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
+import { getToken } from '../services/local-storage'
 
 export default function Navigation() {
 
@@ -17,18 +18,16 @@ export default function Navigation() {
                 <Nav.Link as={NavLink} to="/lists/new">Create List</Nav.Link>
                 <Nav.Link as={NavLink} to="/categories">Categories</Nav.Link>
                 <Nav.Link as={NavLink} to='/logout'>Logout</Nav.Link>
-            </Nav>
-             
+            </Nav>  
         </Navbar>
         )
-        
     }
     
     
     return(
         <div>
             {/* <NavLink to="/profile" exact>Home</NavLink> */}
-            { Object.keys(user).length !== 0 ? loggedInNav() : null }
+            { getToken() ? loggedInNav() : null }
         </div>
     )
 }
