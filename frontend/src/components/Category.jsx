@@ -5,14 +5,14 @@ function Category({title, topTen}) {
 
     const renderTopTen = () => {
         return topTen.map((nom, idx) => (
-            <ListGroup.Item key={nom.key}><strong>{nom.name}</strong>  |  points: {nom.votes}</ListGroup.Item>
+            <ListGroup.Item  key={nom.key}><strong>{nom.name}</strong>  |  points: {nom.votes}</ListGroup.Item>
         ))
     }
     
     return(
         <div>
-            <h4>{title}</h4>
-            <ListGroup >
+            <h4 className="text-center bg-dark text-white">{title}</h4>
+            <ListGroup variant="flush" >
                 {renderTopTen()}
             </ListGroup>
         </div>

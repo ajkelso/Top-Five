@@ -6,7 +6,7 @@ function List(props) {
 
     return(
         <div>
-        <h4 class="text-center">{category}</h4>
+        <h5 className="text-center">{category}</h5>
         <Table bordered size="sm">
             <tbody> 
                 <tr>

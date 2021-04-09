@@ -11,7 +11,7 @@ function ListContainer(props) {
 
     return(
         <div>
-            <h2>Your TopFive Lists</h2>
+            <h4 className="text-center">Your TopFive Lists</h4>
             {renderLists()}
         </div>
     )
