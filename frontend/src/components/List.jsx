@@ -1,36 +1,19 @@
 import React from 'react';
-import Table from 'react-bootstrap/Table'
+import ListGroup from 'react-bootstrap/ListGroup'
 
 function List(props) {
     const {category, first, second, third, fourth, fifth} = props.listData
 
     return(
         <div>
-        <h5 className="text-center">{category}</h5>
-        <Table bordered size="sm">
-            <tbody> 
-                <tr>
-                    <td width='100px'>1st</td>
-                    <td >{first}</td>
-                </tr>
-                <tr>
-                    <td>2nd</td>
-                    <td>{second}</td>
-                </tr>
-                <tr>
-                    <td>3rd</td>
-                    <td>{third}</td>
-                </tr>
-                <tr>
-                    <td>4th</td>
-                    <td>{fourth}</td>
-                </tr>
-                <tr>
-                    <td>5th</td>
-                    <td>{fifth}</td>
-                </tr>
-            </tbody>
-        </Table>
+            <h5 className="bg-light text-center">{category}</h5>
+            <ListGroup variant="flush" >
+                <ListGroup.Item ><strong>{first}</strong></ListGroup.Item>
+                <ListGroup.Item ><strong>{second}</strong></ListGroup.Item>
+                <ListGroup.Item ><strong>{third}</strong></ListGroup.Item>
+                <ListGroup.Item ><strong>{fourth}</strong></ListGroup.Item>
+                <ListGroup.Item ><strong>{fifth}</strong></ListGroup.Item>
+            </ListGroup>
         </div>
     )
 }

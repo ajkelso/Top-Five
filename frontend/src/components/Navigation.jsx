@@ -25,7 +25,7 @@ export default function Navigation() {
 
     const loggedOutNav = () => {
         return (
-        <Navbar bg="primary" variant="light" expand="sm" > 
+        <Navbar bg="light" variant="light" expand="sm" > 
             <Navbar.Brand as={NavLink} to="/">Top5</Navbar.Brand>
         </Navbar>
         )
