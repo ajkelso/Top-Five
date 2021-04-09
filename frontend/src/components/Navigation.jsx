@@ -22,12 +22,19 @@ export default function Navigation() {
         </Navbar>
         )
     }
+
+    const loggedOutNav = () => {
+        return (
+        <Navbar bg="primary" variant="light" expand="sm" > 
+            <Navbar.Brand as={NavLink} to="/">Top5</Navbar.Brand>
+        </Navbar>
+        )
+    }
     
     
     return(
         <div>
-            {/* <NavLink to="/profile" exact>Home</NavLink> */}
-            { getToken() ? loggedInNav() : null }
+            { getToken() ? loggedInNav() : loggedOutNav() }
         </div>
     )
 }

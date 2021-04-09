@@ -5,18 +5,13 @@ function List(props) {
     const {category, first, second, third, fourth, fifth} = props.listData
 
     return(
-        <Table striped bordered hover size="sm">
-            <thead>
+        <div>
+        <h4 class="text-center">{category}</h4>
+        <Table bordered size="sm">
+            <tbody> 
                 <tr>
-                    <th width='20px'>Ranking</th>
-                    <th>{category}</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-                <tr>
-                    <td>1st</td>
-                    <td>{first}</td>
+                    <td width='100px'>1st</td>
+                    <td >{first}</td>
                 </tr>
                 <tr>
                     <td>2nd</td>
@@ -36,6 +31,7 @@ function List(props) {
                 </tr>
             </tbody>
         </Table>
+        </div>
     )
 }
 

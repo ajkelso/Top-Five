@@ -1,19 +1,20 @@
 import React from 'react'
+import ListGroup from 'react-bootstrap/ListGroup'
 
 function Category({title, topTen}) {
 
     const renderTopTen = () => {
-        return topTen.map(nom => (
-            <li key={nom.key}><strong>{nom.name}</strong>  |  points: {nom.votes}</li>
+        return topTen.map((nom, idx) => (
+            <ListGroup.Item key={nom.key}><strong>{nom.name}</strong>  |  points: {nom.votes}</ListGroup.Item>
         ))
     }
     
     return(
         <div>
-            <h5>{title}</h5>
-            <ol>
+            <h4>{title}</h4>
+            <ListGroup >
                 {renderTopTen()}
-            </ol>
+            </ListGroup>
         </div>
     )
     
