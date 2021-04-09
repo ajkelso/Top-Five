@@ -1,8 +1,18 @@
 import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup'
+import Button from 'react-bootstrap/Button'
 
 function List(props) {
     const {category, first, second, third, fourth, fifth} = props.listData
+
+    const handleUpdate = () => {
+        
+
+    }
+
+    const handleDelete = () => {
+
+    }
 
     return(
         <div>
@@ -14,6 +24,8 @@ function List(props) {
                 <ListGroup.Item ><strong>{fourth}</strong></ListGroup.Item>
                 <ListGroup.Item ><strong>{fifth}</strong></ListGroup.Item>
             </ListGroup>
+            <Button onClick={handleUpdate} >Update</Button> 
+            <Button onClick={handleDelete} >Delete</Button>
         </div>
     )
 }

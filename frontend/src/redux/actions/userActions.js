@@ -1,4 +1,4 @@
-import { postList, profileRequest } from '../../services/api'
+import { postList, profileRequest, deleteListRequest  } from '../../services/api'
 
 export function getUser(){
     return(dispatch) => {
@@ -23,4 +23,14 @@ export function addUserList(formData, history){
 
 export function clearUser() {
     return (dispatch) => dispatch({type: 'CLEAR_USER'})
+}
+
+export function deleteList(listId) {
+    return (dispatch) => {
+        dispatch({type: 'START_DELETE_LIST'});
+        deleteListRequest(listId)
+        .then(res => {
+            dispatch( { type: 'DELETE_LIST', payload: res} )
+        })
+    }
 }

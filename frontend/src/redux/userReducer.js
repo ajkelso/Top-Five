@@ -13,6 +13,14 @@ export function userReducer(state = {}, action) {
                     ...state,
                     lists: [...state.lists, action.payload]
                 }
+        case 'START_DELETE_LIST' :
+            return state
+        case 'DELETE_LIST' :
+            console.log(action.payload)
+            return {
+                ...state,
+                lists: state.lists.filter(list => list.id !== action.payload )
+            }
         default :
             return state
     }

@@ -57,3 +57,12 @@ export function categoriesRequest(){
     })
     .then(parseJSON)
 }
+
+export function deleteListRequest(listId){
+    return fetch(URL + 'lists', {
+        method: "DELETE",
+        headers: postHeaders(),
+        body: JSON.stringify(listId)
+    })
+    .then(parseJSON)
+}
