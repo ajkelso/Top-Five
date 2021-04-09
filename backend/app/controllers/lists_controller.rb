@@ -22,6 +22,18 @@ class ListsController < ApplicationController
 
     end
 
+    def destroy
+        list = List.find_by(id: params[:list_id])
+        list.first.increment!(:votes, -5)
+        list.second.increment!(:votes, -4)
+        list.third.increment!(:votes, -3)
+        list.fourth.increment!(:votes, -2)
+        list.fifth.increment!(:votes, -1)
+        list.delete
+        byebug
+    end
+
+
     # private
 
     # def list_params
