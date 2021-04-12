@@ -1,0 +1,2 @@
+class ListsNomination < ApplicationRecord
+end

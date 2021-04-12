@@ -1,7 +1,8 @@
 class List < ApplicationRecord
     belongs_to :user 
     belongs_to :category
-    has_and_belongs_to_many :nominations
+    has_many :lists_nominations, -> { order(:rank)}, limit: 5
+    has_many :nominations, through: :lists_nominations
 
     accepts_nested_attributes_for :category, :nominations
 
