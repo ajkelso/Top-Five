@@ -4,7 +4,7 @@ class List < ApplicationRecord
     has_many :lists_nominations, -> { order(:rank)}, limit: 5
     has_many :nominations, through: :lists_nominations
 
-    accepts_nested_attributes_for :category, :nominations
+    accepts_nested_attributes_for :category, :nominations, :lists_nominations
 
     def category_attributes=(category_attributes)
         category = Category.find_or_create_by(category_attributes)
