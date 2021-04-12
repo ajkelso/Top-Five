@@ -31,11 +31,11 @@ class ListsController < ApplicationController
     def destroy
         
         list = List.find_by(id: params[:id])
-        list.first.increment!(:points, -5)
-        list.second.increment!(:points, -4)
-        list.third.increment!(:points, -3)
-        list.fourth.increment!(:points, -2)
-        list.fifth.increment!(:points, -1)
+        list.nominations[0].increment!(:points, -5)
+        list.nominations[1].increment!(:points, -4)
+        list.nominations[2].increment!(:points, -3)
+        list.nominations[3].increment!(:points, -2)
+        list.nominations[4].increment!(:points, -1)
         list.delete
     
     end
