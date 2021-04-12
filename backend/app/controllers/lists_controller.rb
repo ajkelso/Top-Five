@@ -1,8 +1,6 @@
 class ListsController < ApplicationController
 
     def create
-        byebug
-
         # REFACTOR!!!
         category = Category.find_or_create_by(title: params[:category].strip.downcase)
         new_list = List.create(user_id: current_user.id, category_id: category.id)
@@ -25,8 +23,6 @@ class ListsController < ApplicationController
             {nomination_id: fourth.id, rank: 4}, 
             {nomination_id: fifth.id, rank: 5}
         ])  
-        
-        byebug
         
         render json: new_list
 

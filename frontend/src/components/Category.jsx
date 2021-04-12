@@ -5,7 +5,7 @@ function Category({title, topTen}) {
 
     const renderTopTen = () => {
         return topTen.map(nom => (
-            <ListGroup.Item  key={nom.id}><strong>{nom.name}</strong>  |  points: {nom.votes}</ListGroup.Item>
+            <ListGroup.Item  key={nom.id}><strong>{nom.name}</strong>  |  points: {nom.points}</ListGroup.Item>
         ))
     }
     
