@@ -19,7 +19,7 @@ export function userReducer(state = {}, action) {
             console.log(action.payload)
             return {
                 ...state,
-                lists: state.lists.filter(list => list.id !== action.payload )
+                lists: state.lists.filter(list => list.id !== action.payload.list_id )
             }
         default :
             return state

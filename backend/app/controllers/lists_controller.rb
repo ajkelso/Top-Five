@@ -37,6 +37,8 @@ class ListsController < ApplicationController
         list.nominations[3].increment!(:points, -2)
         list.nominations[4].increment!(:points, -1)
         list.delete
+
+        render json: { list_id: list.id, message: "List successfully deleted!" }
     
     end
 
