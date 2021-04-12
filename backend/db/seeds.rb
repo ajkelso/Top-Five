@@ -74,9 +74,5 @@ l4.lists_nominations.create([
     {nomination_id: n14.id, rank: 4}, 
     {nomination_id: n15.id, rank: 5} 
 ])
-# l1.save
-# l2.save
-# l3.save
-# l4.save
 
 puts "Seeding complete!"

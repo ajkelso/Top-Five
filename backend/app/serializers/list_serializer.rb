@@ -4,11 +4,11 @@ class ListSerializer < ActiveModel::Serializer
   def list_data
     {
       category: Category.find(object.category_id).title,
-      first: Nomination.find(object.first).name,
-      second: Nomination.find(object.second).name,
-      third: Nomination.find(object.third).name,
-      fourth: Nomination.find(object.fourth).name,
-      fifth: Nomination.find(object.fifth).name
+      first: object.nominations[0].name,
+      second: object.nominations[1].name,
+      third: object.nominations[2].name,
+      fourth: object.nominations[3].name,
+      fifth: object.nominations[4].name
     }
   end
 end

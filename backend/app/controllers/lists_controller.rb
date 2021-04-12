@@ -1,6 +1,8 @@
 class ListsController < ApplicationController
 
     def create
+        byebug
+
         # REFACTOR!!!
         category = Category.find_or_create_by(title: params[:category].strip.downcase)
         new_list = List.create(user_id: current_user.id, category_id: category.id)
@@ -10,28 +12,36 @@ class ListsController < ApplicationController
         fourth = Nomination.find_or_create_by(name: params["fourth"], category_id: category.id)
         fifth = Nomination.find_or_create_by(name: params["fifth"], category_id: category.id)
         
-        first.increment!(:votes, 5)
-        second.increment!(:votes, 4)
-        third.increment!(:votes, 3)
-        fourth.increment!(:votes, 2)
-        fifth.increment!(:votes, 1)
+        first.increment!(:points, 5)
+        second.increment!(:points, 4)
+        third.increment!(:points, 3)
+        fourth.increment!(:points, 2)
+        fifth.increment!(:points, 1)
         
-        new_list.update(first: first.id, second: second.id, third: third.id, fourth: fourth.id, fifth:fifth.id)  
-
+        new_list.lists_nominations.create([
+            {nomination_id: first.id, rank: 1}, 
+            {nomination_id: second.id, rank: 2}, 
+            {nomination_id: third.id, rank: 3}, 
+            {nomination_id: fourth.id, rank: 4}, 
+            {nomination_id: fifth.id, rank: 5}
+        ])  
+        
+        byebug
+        
         render json: new_list
 
     end
 
     def destroy
-        byebug
+        
         list = List.find_by(id: params[:id])
-        list.first.increment!(:votes, -5)
-        list.second.increment!(:votes, -4)
-        list.third.increment!(:votes, -3)
-        list.fourth.increment!(:votes, -2)
-        list.fifth.increment!(:votes, -1)
+        list.first.increment!(:points, -5)
+        list.second.increment!(:points, -4)
+        list.third.increment!(:points, -3)
+        list.fourth.increment!(:points, -2)
+        list.fifth.increment!(:points, -1)
         list.delete
-        byebug
+    
     end
 
 

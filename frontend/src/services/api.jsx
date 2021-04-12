@@ -59,7 +59,7 @@ export function categoriesRequest(){
 }
 
 export function deleteListRequest(listId){
-    return fetch(URL + 'lists', {
+    return fetch(URL + `lists/${listId}`, {
         method: "DELETE",
         headers: postHeaders(),
         body: JSON.stringify(listId)

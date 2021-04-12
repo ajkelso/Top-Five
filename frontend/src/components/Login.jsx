@@ -18,6 +18,7 @@ function Login(props) {
             if (res.message) {
                 setMessage(res.message)
             } else {
+                debugger
                 setToken(res.jwt)
                 props.history.push('/profile')
             }
