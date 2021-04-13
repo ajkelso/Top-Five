@@ -29,28 +29,25 @@ class ListsController < ApplicationController
     end
 
     def update 
-        byebug
+        
         list = List.find_by(id: params[:id])
         
-        # change points for old noms
-        pts = 5
-        list.nominations.each do |n| 
-            n.increment!(:points, -pts)
-            pts -= 1
-        end
-
-
-
-
-
-        first = Nomination.find_by(name: params["first"], category_id: list.category_id)
-        second = Nomination.find_by(name: params["second"], category_id: list.category_id)
-        third = Nomination.find_by(name: params["third"], category_id: list.category_id)
-        fourth = Nomination.find_by(name: params["fourth"], category_id: list.category_id)
-        fifth = Nomination.find_by(name: params["fifth"], category_id: list.category_id)
-
         if list 
-            list.update(list_params)
+            # change points for old noms
+            pts = 5
+            list.nominations.each do |n| 
+                n.increment!(:points, -pts)
+                pts -= 1
+            end
+            #find or create new noms
+            first = Nomination.find_or_create_by(name: params["first"], category_id: list.category_id)
+            second = Nomination.find_or_create_by(name: params["second"], category_id: list.category_id)
+            third = Nomination.find_or_create_by(name: params["third"], category_id: list.category_id)
+            fourth = Nomination.find_or_create_by(name: params["fourth"], category_id: list.category_id)
+            fifth = Nomination.find_or_create_by(name: params["fifth"], category_id: list.category_id)
+
+            byebug
+            
             render json: {message: "List updated!"}
         else
             render json: {error: "List failed to update"}
@@ -72,11 +69,11 @@ class ListsController < ApplicationController
     end
 
 
-    private
+    # private
 
-    def list_params
-        params.permit(:first, :second, :third, :fourth, :fifth)
-    end
+    # def list_params
+    #     params.permit(:first, :second, :third, :fourth, :fifth)
+    # end
 
 
 
