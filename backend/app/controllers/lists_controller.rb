@@ -23,7 +23,6 @@ class ListsController < ApplicationController
             {nomination_id: fourth.id, rank: 4}, 
             {nomination_id: fifth.id, rank: 5}
         ]) 
-        byebug 
         render json: new_list
 
     end
@@ -45,6 +44,14 @@ class ListsController < ApplicationController
             third = Nomination.find_or_create_by(name: params["third"], category_id: list.category_id)
             fourth = Nomination.find_or_create_by(name: params["fourth"], category_id: list.category_id)
             fifth = Nomination.find_or_create_by(name: params["fifth"], category_id: list.category_id)
+            
+            newNoms = [first, second, third, fourth, fifth]
+            new_pts = 5
+            list.lists_nominations.zip(newNoms).each  do |record, nom| 
+                record.update(nomination_id: nom.id) 
+                nom.increment!(:points, new_pts)
+                new_pts -= 1
+            end
 
             byebug
             
