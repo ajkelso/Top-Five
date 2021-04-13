@@ -34,3 +34,11 @@ export function deleteList(listId) {
         })
     }
 }
+
+export function updateList(listData, history) {
+    
+    return (dispatch) => {
+        dispatch( {type: 'UPDATE_LIST', payload: listData })
+        history.push('./lists/new')
+    }
+}

@@ -1,16 +1,19 @@
 import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
-import { deleteList } from '../redux/actions/userActions'
+import { deleteList, updateList } from '../redux/actions/userActions'
 import { useDispatch } from 'react-redux'
+import { useHistory } from "react-router-dom"
+
 
 function List(props) {
     const {id, category, first, second, third, fourth, fifth} = props.listData
 
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const handleUpdate = () => {
-        // dispatch(updateList)
+        dispatch(updateList(props.listData ,history))
 
     }
 

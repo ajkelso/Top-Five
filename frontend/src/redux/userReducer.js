@@ -21,6 +21,7 @@ export function userReducer(state = {}, action) {
                 lists: state.lists.filter(list => list.id !== action.payload.list_id )
             }
         case 'UPDATE_LIST' :
+            console.log(action.payload)
             return {
                 ...state, 
                 formData: action.payload

@@ -16,14 +16,14 @@ function ListForm(props) {
     })
     const [editMode, setEditMode] = useState(false)
 
-    const updateData = useSelector(state => state.formData)
-
+    const updateData = useSelector(state => (state.user.formData))
+    
     useEffect(() => {
         if(!!updateData){
             setFormData(updateData)
             setEditMode(true)
         }
-    })
+    }, [])
 
     const dispatch = useDispatch()
 
