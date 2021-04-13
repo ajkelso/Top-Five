@@ -3,7 +3,7 @@ class ListsController < ApplicationController
     def create
         # REFACTOR!!!
         category = Category.find_or_create_by(title: params[:category].strip.downcase)
-        new_list = List.create(user_id: current_user.id, category_id: category.id)
+        new_list = List.create!(user_id: current_user.id, category_id: category.id)
         first = Nomination.find_or_create_by(name: params["first"], category_id: category.id)
         second = Nomination.find_or_create_by(name: params["second"], category_id: category.id)
         third = Nomination.find_or_create_by(name: params["third"], category_id: category.id)
@@ -22,10 +22,39 @@ class ListsController < ApplicationController
             {nomination_id: third.id, rank: 3}, 
             {nomination_id: fourth.id, rank: 4}, 
             {nomination_id: fifth.id, rank: 5}
-        ])  
-        byebug
+        ]) 
+        byebug 
         render json: new_list
 
+    end
+
+    def update 
+        byebug
+        list = List.find_by(id: params[:id])
+        
+        # change points for old noms
+        pts = 5
+        list.nominations.each do |n| 
+            n.increment!(:points, -pts)
+            pts -= 1
+        end
+
+
+
+
+
+        first = Nomination.find_by(name: params["first"], category_id: list.category_id)
+        second = Nomination.find_by(name: params["second"], category_id: list.category_id)
+        third = Nomination.find_by(name: params["third"], category_id: list.category_id)
+        fourth = Nomination.find_by(name: params["fourth"], category_id: list.category_id)
+        fifth = Nomination.find_by(name: params["fifth"], category_id: list.category_id)
+
+        if list 
+            list.update(list_params)
+            render json: {message: "List updated!"}
+        else
+            render json: {error: "List failed to update"}
+        end
     end
 
     def destroy
@@ -36,18 +65,18 @@ class ListsController < ApplicationController
         list.nominations[2].increment!(:points, -3)
         list.nominations[3].increment!(:points, -2)
         list.nominations[4].increment!(:points, -1)
-        list.delete
+        list.destroy
 
         render json: { list_id: list.id, message: "List successfully deleted!" }
     
     end
 
 
-    # private
+    private
 
-    # def list_params
-    #     params.permit(:user_id, :category_id, :category, :first, :second, :third, :fourth, :fifth)
-    # end
+    def list_params
+        params.permit(:first, :second, :third, :fourth, :fifth)
+    end
 
 
 

@@ -5,7 +5,7 @@ function ListContainer(props) {
 
     const renderLists = () => {
         if(props.lists){
-            return props.lists.map(list => <List key={list.id} id={list.id} listData={list.list_data} />)
+            return props.lists.map(list => <List key={list.list_data.id} listData={list.list_data} />)
         }
     }
 
