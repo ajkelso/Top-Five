@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { addUserList } from '../redux/actions/userActions'
 import { useHistory } from "react-router-dom"
 import { Form, Row, Col } from 'react-bootstrap'
@@ -13,6 +13,16 @@ function ListForm(props) {
         third: "",
         fourth: "",
         fifth: ""
+    })
+    const [editMode, setEditMode] = useState(false)
+
+    const updateData = useSelector(state => state.formData)
+
+    useEffect(() => {
+        if(!!updateData){
+            setFormData(updateData)
+            setEditMode(true)
+        }
     })
 
     const dispatch = useDispatch()
@@ -34,8 +44,8 @@ function ListForm(props) {
     }
 
     return(
-
         <div>
+            {console.log(!!updateData)}
 
             <h4>Create a top 5 List</h4>
 

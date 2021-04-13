@@ -1,2 +1,4 @@
--tweek list serializer
 -refactor List create
+
+-create error reducer and display errors/messages
+

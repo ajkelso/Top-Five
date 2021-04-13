@@ -16,10 +16,14 @@ export function userReducer(state = {}, action) {
         case 'START_DELETE_LIST' :
             return state
         case 'DELETE_LIST' :
-            console.log(action.payload)
             return {
                 ...state,
                 lists: state.lists.filter(list => list.id !== action.payload.list_id )
+            }
+        case 'UPDATE_LIST' :
+            return {
+                ...state, 
+                formData: action.payload
             }
         default :
             return state
