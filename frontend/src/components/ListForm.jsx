@@ -48,7 +48,7 @@ function ListForm(props) {
 
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
-                    <Form.Control size="sm" type="text" name="category" placeholder="Choose a Category..." onChange={handleChange} value={formData.category}/>
+                    <Form.Control size="sm" type="text" name="category" readOnly={editMode ? true : false } placeholder="Choose a Category..." onChange={handleChange} value={formData.category}/>
                 </Form.Group>
                 <Form.Group as={Row} >
                     <Form.Label column sm={1} htmlFor="First">1.</Form.Label>

@@ -4,7 +4,7 @@ class ListSerializer < ActiveModel::Serializer
   def list_data
     {
       id: object.id,
-      category: Category.find(object.category_id).title,
+      category: Category.find(object.category_id).title.capitalize(),
       first: object.nominations[0].name,
       second: object.nominations[1].name,
       third: object.nominations[2].name,

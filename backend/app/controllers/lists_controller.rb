@@ -53,8 +53,6 @@ class ListsController < ApplicationController
                 new_pts -= 1
             end
 
-            byebug
-            
             render json: {message: "List updated!"}
         else
             render json: {error: "List failed to update"}
