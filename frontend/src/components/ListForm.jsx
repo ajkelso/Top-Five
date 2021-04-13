@@ -15,7 +15,6 @@ function ListForm(props) {
         fifth: ""
     })
     const [editMode, setEditMode] = useState(false)
-
     const updateData = useSelector(state => (state.user.formData))
     
     useEffect(() => {
@@ -40,13 +39,11 @@ function ListForm(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(addUserList(formData, history))
+        editMode ? dispatch(updateRequest(formData, history)) : dispatch(addUserList(formData, history))
     }
 
     return(
         <div>
-            {console.log(!!updateData)}
-
             <h4>Create a top 5 List</h4>
 
             <Form onSubmit={handleSubmit}>
@@ -89,7 +86,7 @@ function ListForm(props) {
                 </Form.Group>
 
                 <Form.Group as={Row} >
-                    <Form.Control size="sm" type="submit"/>
+                    <Form.Control size="sm" type="submit" value={editMode ? "Update" : "Submit"}/> 
                 </Form.Group>
 
             </Form>
