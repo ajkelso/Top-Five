@@ -43,7 +43,7 @@ export function updateForm(listData, history) {
     }
 }
 
-export function updateRequest(listData, history) {
+export function updateList(listData, history) {
     return (dispatch) => {
         dispatch ({type: 'START_UPDATE_REQUEST'});
         updateListRequest(listData)

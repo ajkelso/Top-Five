@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { addUserList } from '../redux/actions/userActions'
+import { addUserList, updateList } from '../redux/actions/userActions'
 import { useHistory } from "react-router-dom"
 import { Form, Row, Col } from 'react-bootstrap'
 
@@ -39,7 +39,7 @@ function ListForm(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        editMode ? dispatch(updateRequest(formData, history)) : dispatch(addUserList(formData, history))
+        editMode ? dispatch(updateList(formData, history)) : dispatch(addUserList(formData, history))
     }
 
     return(

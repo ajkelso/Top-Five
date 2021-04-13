@@ -23,7 +23,7 @@ class ListsController < ApplicationController
             {nomination_id: fourth.id, rank: 4}, 
             {nomination_id: fifth.id, rank: 5}
         ])  
-        
+        byebug
         render json: new_list
 
     end
