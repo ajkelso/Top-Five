@@ -1,7 +1,7 @@
 import React from 'react';
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
-import { deleteList, updateList } from '../redux/actions/userActions'
+import { deleteList, updateForm } from '../redux/actions/userActions'
 import { useDispatch } from 'react-redux'
 import { useHistory } from "react-router-dom"
 
@@ -13,8 +13,7 @@ function List(props) {
     const history = useHistory()
 
     const handleUpdate = () => {
-        dispatch(updateList(props.listData ,history))
-
+        dispatch(updateForm(props.listData ,history))
     }
 
     const handleDelete = () => {

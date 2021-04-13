@@ -1,4 +1,4 @@
-import { postList, profileRequest, deleteListRequest  } from '../../services/api'
+import { postList, profileRequest, deleteListRequest, updateListRequest  } from '../../services/api'
 
 export function getUser(){
     return(dispatch) => {
@@ -35,10 +35,21 @@ export function deleteList(listId) {
     }
 }
 
-export function updateList(listData, history) {
+export function updateForm(listData, history) {
     
     return (dispatch) => {
-        dispatch( {type: 'UPDATE_LIST', payload: listData })
+        dispatch( {type: 'UPDATE_FORM', payload: listData })
         history.push('./lists/new')
+    }
+}
+
+export function updateRequest(listData, history) {
+    return (dispatch) => {
+        dispatch ({type: 'START_UPDATE_REQUEST'});
+        updateListRequest(listData)
+        .then(res => {
+            dispatch({type: 'UPDATE_LIST', payload: res})
+            history.push('/profile')
+        })
     }
 }

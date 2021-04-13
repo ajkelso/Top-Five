@@ -66,3 +66,12 @@ export function deleteListRequest(listId){
     })
     .then(parseJSON)
 }
+
+export function updateListRequest(listData){
+    return fetch(URL + `lists/${listData.id}`, {
+        method: "PATCH",
+        headers: postHeaders(),
+        body: JSON.stringify(listData)
+    })
+    .then(parseJSON)
+}

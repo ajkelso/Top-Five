@@ -20,11 +20,16 @@ export function userReducer(state = {}, action) {
                 ...state,
                 lists: state.lists.filter(list => list.id !== action.payload.list_id )
             }
-        case 'UPDATE_LIST' :
+        case 'UPDATE_FORM' :
             return {
                 ...state, 
                 formData: action.payload
             }
+        case 'START_UPDATE_REQUEST' :
+            return state 
+        case 'UPDATE_LIST' :
+            console.log('reducer update')
+            return state
         default :
             return state
     }
