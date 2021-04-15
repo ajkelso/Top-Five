@@ -21,7 +21,7 @@ function List(props) {
     }
 
     return(
-        <div>
+        <div className="top-five-list">
             <h5 className="bg-light text-center">{category}</h5>
             <ListGroup variant="flush" >
                 <ListGroup.Item ><strong>{first}</strong></ListGroup.Item>
@@ -30,8 +30,8 @@ function List(props) {
                 <ListGroup.Item ><strong>{fourth}</strong></ListGroup.Item>
                 <ListGroup.Item ><strong>{fifth}</strong></ListGroup.Item>
             </ListGroup>
-            <Button onClick={handleUpdate} >Update</Button> 
-            <Button onClick={handleDelete} >Delete</Button>
+            <Button variant="outline-info" onClick={handleUpdate} >Update</Button> 
+            <Button variant="outline-info" onClick={handleDelete} >Delete</Button>
         </div>
     )
 }
