@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { signUpRequest } from '../services/api'
 import { setToken } from '../services/local-storage'
+import {Form, Row, Col} from 'react-bootstrap'
 
 function SignUp(props){
 
@@ -60,19 +61,35 @@ function SignUp(props){
 
     return(
         <div>
-            <h4>Sign up to start your TopFive!</h4>
-            <form onSubmit={handleSubmit}>
-                <p style={{color: 'red'}}>{formData.message}</p>
-                <label htmlFor="username">Username: </label>
-                <input type="text" name="username" onChange={handleChange} value={formData.username}/><br/>
-                <label htmlFor="email">Email: </label>
-                <input type="text" name="email" onChange={handleChange} value={formData.email}/><br/>
-                <label htmlFor="password">Password: </label>
-                <input type="password" name="password" onChange={handleChange} value={formData.password}/><br/>
-                <label htmlFor="Confirm Password">Confirm Password: </label>
-                <input type="password" name="passwordConfirm" onChange={handleChange} value={formData.passwordConfirm}/><br/>
-                <input type="submit"/>
-            </form>
+            <h4 className="d-flex justify-content-center">Sign up to start your TopFive!</h4>
+            <Form onSubmit={handleSubmit}>
+                <p style={{color: 'red'}} className="d-flex justify-content-center">{formData.message}</p>
+                <Form.Group as={Row} className="justify-content-md-center" >
+                    <Col sm={8} xs lg="3">
+                        <Form.Control type="text" placeholder="Username" name="username" onChange={handleChange} value={formData.username}/><br/>
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row} className="justify-content-md-center" >
+                    <Col sm={8} xs lg="3">
+                        <Form.Control type="email" placeholder="email" name="email" onChange={handleChange} value={formData.email}/><br/>
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row} className="justify-content-md-center" >
+                    <Col sm={8} xs lg="3">
+                        <Form.Control type="password" placeholder="Password" name="password" onChange={handleChange} value={formData.password}/><br/>
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row} className="justify-content-md-center" >
+                    <Col sm={8} xs lg="3">
+                        <Form.Control type="password" placeholder="Confirm Password" name="passwordConfirm" onChange={handleChange} value={formData.passwordConfirm}/><br/>
+                    </Col>
+                </Form.Group>
+                <Form.Group as={Row} className="justify-content-md-center" >
+                    <Col sm={8} xs lg="3">
+                        <Form.Control type="submit"/>
+                    </Col>
+                </Form.Group>
+            </Form>
         </div>
     )
 }

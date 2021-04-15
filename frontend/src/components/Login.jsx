@@ -32,17 +32,15 @@ function Login(props) {
             <h4 className="d-flex justify-content-center">Login Below</h4>
 
             <Form onSubmit={handleSubmit} >
-                <p style={{color: 'red'}}>{message}</p>
+                <p style={{color: 'red'}} className="d-flex justify-content-center">{message}</p>
                 <Form.Group as={Row} className="justify-content-md-center" >
-                    <Form.Label column xs lg="1" class="col col-lg-2" htmlFor="username">Username: </Form.Label>
                     <Col sm={8} xs lg="3">
-                        <Form.Control type="text" onChange={handleChangeUsername} value={username}/><br/>
+                        <Form.Control type="text" placeholder="Username" onChange={handleChangeUsername} value={username}/><br/>
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="justify-content-md-center" >
-                    <Form.Label column xs lg="1" htmlFor="password">Password: </Form.Label>
                     <Col sm={8} xs lg="3" >
-                        <Form.Control type="password" onChange={handleChangePassword} value={password}/><br/>
+                        <Form.Control type="password" placeholder="Password" onChange={handleChangePassword} value={password}/><br/>
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="justify-content-md-center" >

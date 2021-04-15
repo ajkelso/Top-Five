@@ -28,9 +28,9 @@ function Home(props) {
         
         <div>
             {getToken() ? <Redirect to='/profile'/>: null }
-            <h2>Welcome!</h2>  
+            <h2 class="d-flex justify-content-center">Welcome!</h2>  
 
-            <p>Please <button onClick={handleLoginClick}>Login</button> or <button onClick={handleSignupClick}>SignUp</button> !</p>   
+            <p class="d-flex justify-content-center">Please <button onClick={handleLoginClick}>Login</button> or <button onClick={handleSignupClick}>SignUp</button> !</p>   
             { login ? <Login history={props.history} /> : null }
             { signUp ? <SignUp history={props.history}/> : null }
 
