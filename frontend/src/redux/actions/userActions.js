@@ -16,7 +16,10 @@ export function addUserList(formData, history){
         postList(formData)
         .then(res => {
             console.log(res.list)
-            dispatch( {type: 'ADD_LIST', payload: res.list, error: res.error, message: res.message} ) 
+            dispatch( {type: 'ADD_LIST', payload: res.list})
+            if (res.message || res.error) {
+                dispatch( {type: 'ADD_ALERT', error: res.error, message: res.message })
+            }
             history.push('/profile')
         })
     }

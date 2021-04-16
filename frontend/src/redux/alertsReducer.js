@@ -5,19 +5,17 @@ const initState = {
    
 export function alertsReducer(state = initState, action){
     
-    const { error, message } = action;
-   
-    if(error){
-        return {
-            ...state,
-            error
-        }
-    } else if (message){
-        return {
-            ...state,
-            message
-        }
+    switch (action.type) {
+        case 'ADD_ALERT':
+            return {
+                ...state,
+                message: action.message,
+                error: action.error
+            }
+        case 'CHANGE_ALERT':
+            return initState
+
+        default:
+            return state;
     }
-   
-    return state;
 }
