@@ -23,8 +23,8 @@ function List(props) {
     return(
         <div className="top-five-list">
             <h5 className="bg-light text-center">{category}</h5>
-            <ListGroup variant="flush" >
-                <ListGroup.Item ><strong>{first}</strong></ListGroup.Item>
+            <ListGroup className="d-flex justify-content-center" variant="flush" >
+                <ListGroup.Item  ><strong>{first}</strong></ListGroup.Item>
                 <ListGroup.Item ><strong>{second}</strong></ListGroup.Item>
                 <ListGroup.Item ><strong>{third}</strong></ListGroup.Item>
                 <ListGroup.Item ><strong>{fourth}</strong></ListGroup.Item>

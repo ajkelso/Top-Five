@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { loginRequest } from '../services/api'
 import { setToken } from '../services/local-storage'
-import {Form, Row, Col} from 'react-bootstrap'
+import {Form, Row, Col, Alert} from 'react-bootstrap'
 
 function Login(props) {
 
@@ -14,9 +14,8 @@ function Login(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        loginRequest({user:{username, password}})
+        loginRequest({user:{username: username.trim(), password}})
         .then(res => {
-            console.log(res)
             if (res.message) {
                 setMessage(res.message)
             } else {
@@ -26,13 +25,16 @@ function Login(props) {
         })
     }
 
+    const alertClose = () => setMessage("")
+
     return(
         <div>
            
             <h4 className="d-flex justify-content-center">Login Below</h4>
 
             <Form onSubmit={handleSubmit} >
-                <p style={{color: 'red'}} className="d-flex justify-content-center">{message}</p>
+                {message ? <Alert variant="danger" onClose={alertClose} dismissible>{message}</Alert> : null }
+
                 <Form.Group as={Row} className="justify-content-md-center" >
                     <Col sm={8} xs lg="3">
                         <Form.Control type="text" placeholder="Username" onChange={handleChangeUsername} value={username}/><br/>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { signUpRequest } from '../services/api'
 import { setToken } from '../services/local-storage'
-import {Form, Row, Col} from 'react-bootstrap'
+import {Form, Row, Col, Alert} from 'react-bootstrap'
 
 function SignUp(props){
 
@@ -33,8 +33,8 @@ function SignUp(props){
         } else {
             return {
                 user: {
-                    username: formData.username,
-                    email: formData.email,
+                    username: formData.username.trim(),
+                    email: formData.email.trim(),
                     password: formData.password
                 }
             }
@@ -45,6 +45,7 @@ function SignUp(props){
         e.preventDefault()
         signUpRequest(buildUserData())
         .then(res => {
+            console.log(res);
             if (res.error){
                 setFormData((prevalue) => {
                     return {
@@ -59,11 +60,20 @@ function SignUp(props){
         })
     }
 
+    const alertClose = () => {
+        setFormData((prevalue) => {
+            return {
+                ...prevalue,
+                message: ""
+            }
+        })
+    }
+
     return(
         <div>
             <h4 className="d-flex justify-content-center">Sign up to start your TopFive!</h4>
             <Form onSubmit={handleSubmit}>
-                <p style={{color: 'red'}} className="d-flex justify-content-center">{formData.message}</p>
+                {formData.message ? <Alert variant="danger" onClose={alertClose} dismissible>{formData.message}</Alert> : null }
                 <Form.Group as={Row} className="justify-content-md-center" >
                     <Col sm={8} xs lg="3">
                         <Form.Control type="text" placeholder="Username" name="username" onChange={handleChange} value={formData.username}/><br/>
