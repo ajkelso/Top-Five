@@ -15,7 +15,8 @@ export function addUserList(formData, history){
         dispatch({type: 'START_ADDING_LIST'});
         postList(formData)
         .then(res => {
-            dispatch( {type: 'ADD_LIST', payload: res} ) 
+            console.log(res.list)
+            dispatch( {type: 'ADD_LIST', payload: res.list, error: res.error, message: res.message} ) 
             history.push('/profile')
         })
     }

@@ -23,7 +23,7 @@ class ListsController < ApplicationController
             {nomination_id: fourth.id, rank: 4}, 
             {nomination_id: fifth.id, rank: 5}
         ]) 
-        render json: new_list
+        render json: { list: ListSerializer.new(new_list), message: "List created!" }
 
     end
 
