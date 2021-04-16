@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { signUpRequest } from '../services/api'
 import { setToken } from '../services/local-storage'
 import {Form, Row, Col, Alert} from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
 
 function SignUp(props){
 
@@ -12,6 +13,8 @@ function SignUp(props){
         passwordConfirm: "",
         message: ""
     })
+
+    const dispatch = useDispatch()
 
     const handleChange = (e) => {
         setFormData((prevalue) => {
@@ -27,7 +30,7 @@ function SignUp(props){
             setFormData((prevalue) => {
                 return {
                     ...prevalue,
-                    message: "Password does not match"
+                    message: "Passwords do not match"
                 }
             })
         } else {
@@ -43,37 +46,26 @@ function SignUp(props){
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        signUpRequest(buildUserData())
-        .then(res => {
-            console.log(res);
-            if (res.error){
-                setFormData((prevalue) => {
-                    return {
-                        ...prevalue,
-                        message: res.error
-                    }
-                })
-            } else {
-                setToken(res.jwt)
-                props.history.push('/profile')
-            }
-        })
-    }
-
-    const alertClose = () => {
-        setFormData((prevalue) => {
-            return {
-                ...prevalue,
-                message: ""
-            }
-        })
+        const userData = buildUserData()
+        if (userData){
+            signUpRequest(buildUserData())
+            .then(res => {
+                console.log(res);
+                if (res.error){
+                    dispatch( {type: 'ADD_ALERT', error: res.error, message: res.message })
+                } else {
+                    setToken(res.jwt)
+                    dispatch( {type: 'ADD_ALERT', error: res.error, message: res.message })
+                    props.history.push('/profile')
+                }
+            })
+        }
     }
 
     return(
         <div>
             <h4 className="d-flex justify-content-center">Sign up to start your TopFive!</h4>
             <Form onSubmit={handleSubmit}>
-                {formData.message ? <Alert variant="danger" onClose={alertClose} dismissible>{formData.message}</Alert> : null }
                 <Form.Group as={Row} className="justify-content-md-center" >
                     <Col sm={8} xs lg="3">
                         <Form.Control type="text" placeholder="Username" name="username" onChange={handleChange} value={formData.username}/><br/>
@@ -84,6 +76,7 @@ function SignUp(props){
                         <Form.Control type="email" placeholder="email" name="email" onChange={handleChange} value={formData.email}/><br/>
                     </Col>
                 </Form.Group>
+                {formData.message ? <Alert variant="danger" >{formData.message}</Alert> : null }
                 <Form.Group as={Row} className="justify-content-md-center" >
                     <Col sm={8} xs lg="3">
                         <Form.Control type="password" placeholder="Password" name="password" onChange={handleChange} value={formData.password}/><br/>
