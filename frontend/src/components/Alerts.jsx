@@ -18,7 +18,7 @@ export default function Alerts() {
     
     return(
         <>
-            { message && (<Alert variant="success" >
+            { message && (<Alert className="sticky-top" variant="success" >
                 {message}
             </Alert>) }
             { error && (<Alert variant="danger">

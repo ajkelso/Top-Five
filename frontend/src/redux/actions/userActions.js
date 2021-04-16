@@ -15,7 +15,6 @@ export function addUserList(formData, history){
         dispatch({type: 'START_ADDING_LIST'});
         postList(formData)
         .then(res => {
-            console.log(res.list)
             dispatch( {type: 'ADD_LIST', payload: res.list})
             if (res.message || res.error) {
                 dispatch( {type: 'ADD_ALERT', error: res.error, message: res.message })
