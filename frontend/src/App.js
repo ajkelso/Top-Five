@@ -4,11 +4,14 @@ import Profile from './components/Profile'
 import Navigation from './components/Navigation'
 import ListForm from './components/ListForm'
 import Logout from './components/Logout'
+import Alerts from './components/Alerts'
 import { getToken } from './services/local-storage'
 import CategoriesContainer from './components/CategoriesContainer'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.scss'
 import { Container, Row, Col } from 'react-bootstrap'
+
+
 
 function App() {
 
@@ -17,6 +20,7 @@ function App() {
       <Router>
         <Navigation/>
         {!getToken() ? <Redirect to="/" /> : null }
+        <Alerts />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/profile" component={Profile} />

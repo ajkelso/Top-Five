@@ -3,7 +3,7 @@ const initState = {
     message: null
    };
    
-export function messageReducer(state = initState, action){
+export function alertsReducer(state = initState, action){
     
     const { error, message } = action;
    
