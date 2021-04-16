@@ -50,7 +50,6 @@ function SignUp(props){
         if (userData){
             signUpRequest(buildUserData())
             .then(res => {
-                console.log(res);
                 if (res.error){
                     dispatch( {type: 'ADD_ALERT', error: res.error, message: res.message })
                 } else {
