@@ -24,7 +24,6 @@ function Home(props) {
         }
     }
     
-    
     return (
         
         <div>
@@ -36,7 +35,6 @@ function Home(props) {
             </div>
             { login ? <Login history={props.history} /> : null }
             { signUp ? <SignUp history={props.history}/> : null }
-
 
         </div>
     )
