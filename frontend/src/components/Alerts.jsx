@@ -12,13 +12,12 @@ export default function Alerts() {
 
     useEffect(() => {
         setTimeout(() => {
-            dispatch({type: 'CHANGE_ALERT'})
+            dispatch({type: 'RESET_ALERT'})
         }, 3000)
     },)
     
     return(
         <>
-        {console.log("I mounted")}
             { message && (<Alert variant="success" >
                 {message}
             </Alert>) }

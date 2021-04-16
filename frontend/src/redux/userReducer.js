@@ -17,8 +17,9 @@ export function userReducer(state = {}, action) {
             return state
         case 'DELETE_LIST' :
             return {
+                
                 ...state,
-                lists: state.lists.filter(list => list.id !== action.payload.list_id )
+                lists: state.lists.filter(list => list.list_data.id !== action.payload.list_id )
             }
         case 'UPDATE_FORM' :
             return {

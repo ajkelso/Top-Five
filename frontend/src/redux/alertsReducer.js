@@ -12,7 +12,7 @@ export function alertsReducer(state = initState, action){
                 message: action.message,
                 error: action.error
             }
-        case 'CHANGE_ALERT':
+        case 'RESET_ALERT':
             return initState
 
         default:

@@ -29,12 +29,14 @@ export function clearUser() {
     return (dispatch) => dispatch({type: 'CLEAR_USER'})
 }
 
-export function deleteList(listId) {
+export function deleteList(listId, history) {
     return (dispatch) => {
         dispatch({type: 'START_DELETE_LIST'});
         deleteListRequest(listId)
         .then(res => {
             dispatch( { type: 'DELETE_LIST', payload: res} )
+            dispatch( { type: 'ADD_ALERT', error: res.error, message: res.message })
+            history.push('/profile')
         })
     }
 }

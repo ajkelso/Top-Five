@@ -17,7 +17,7 @@ function List(props) {
     }
 
     const handleDelete = () => {
-        dispatch(deleteList(id))
+        dispatch(deleteList(id, history))
     }
 
     return(
