@@ -5,6 +5,7 @@ import Navigation from './components/Navigation'
 import ListForm from './components/ListForm'
 import Logout from './components/Logout'
 import Alerts from './components/Alerts'
+import NoMatch from './components/NoMatch'
 import { getToken } from './services/local-storage'
 import CategoriesContainer from './components/CategoriesContainer'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -21,10 +22,11 @@ function App() {
         <Alerts />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/profile" component={Profile} />
+          <Route exact path="/profile" component={Profile} />
           <Route path="/lists/new" component={ListForm} />
           <Route path="/categories" component={CategoriesContainer} />
           <Route exact path="/logout" component={Logout} />
+          <Route path="*" component={NoMatch}/>
         </Switch>
       </Router>
     </Container>
