@@ -1,13 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { getToken } from '../services/local-storage'
 
 export default function Navigation() {
-
-    const user = useSelector(state => state.user)
 
     const loggedInNav = () => {
         return(

@@ -53,7 +53,7 @@ class ListsController < ApplicationController
                 new_pts -= 1
             end
 
-            render json: {message: "List updated!"}
+            render json: { list: ListSerializer.new(list), message: "List updated!"}
         else
             render json: {error: "List failed to update"}
         end

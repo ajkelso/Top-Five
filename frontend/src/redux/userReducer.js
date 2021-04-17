@@ -28,9 +28,6 @@ export function userReducer(state = {}, action) {
             }
         case 'START_UPDATE_REQUEST' :
             return state 
-        case 'UPDATE_LIST' :
-            console.log('reducer update')
-            return state
         default :
             return state
     }

@@ -9,9 +9,7 @@ import { getToken } from './services/local-storage'
 import CategoriesContainer from './components/CategoriesContainer'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.scss'
-import { Container, Row, Col } from 'react-bootstrap'
-
-
+import { Container } from 'react-bootstrap'
 
 function App() {
 

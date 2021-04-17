@@ -54,6 +54,7 @@ export function updateList(listData, history) {
         updateListRequest(listData)
         .then(res => {
             dispatch({type: 'UPDATE_LIST', payload: res})
+            dispatch({type: 'ADD_ALERT', error: res.error, message: res.message })    
             history.push('/profile')
         })
     }

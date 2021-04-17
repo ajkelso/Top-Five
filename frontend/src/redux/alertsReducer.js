@@ -5,6 +5,7 @@ const initState = {
    
 export function alertsReducer(state = initState, action){
     
+    console.log(action.message)
     switch (action.type) {
         case 'ADD_ALERT':
             return {

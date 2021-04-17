@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getUser } from '../redux/actions/userActions'
 import ListContainer from './ListContainer'
 import { Link } from 'react-router-dom'
-import Button from 'react-bootstrap/Button'
 
 function Profile() {
 
