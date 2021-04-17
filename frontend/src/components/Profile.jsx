@@ -19,7 +19,7 @@ function Profile() {
         <div>
             <h2 className="text-center">Welcome, {user.username}!</h2>
            
-            {user.lists.length ? <ListContainer lists={user.lists} /> : <Link className="btn btn-info btn-lg d-flex justify-content-center" to="/lists/new">Start Creating Lists!</Link>}
+            {user.lists && user.lists.length ? <ListContainer lists={user.lists} /> : <Link className="btn btn-info btn-lg d-flex justify-content-center" to="/lists/new">Start Creating Lists!</Link>}
         </div>
     )
 }

@@ -26,6 +26,8 @@ class ApplicationController < ActionController::API
         if decoded_token
             user_id = decoded_token[0]['user_id']
             @user = User.find_by(id: user_id)
+        # else
+        #     render json: {error: "Please Log In"}
         end
     end
 
