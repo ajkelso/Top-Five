@@ -23,8 +23,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/profile" component={Profile} />
-          <Route path="/lists/new" component={ListForm} />
-          <Route path="/categories" component={CategoriesContainer} />
+          <Route exact path="/lists/new" component={ListForm} />
+          <Route exact path="/categories" component={CategoriesContainer} />
           <Route exact path="/logout" component={Logout} />
           <Route path="*" component={NoMatch}/>
         </Switch>
